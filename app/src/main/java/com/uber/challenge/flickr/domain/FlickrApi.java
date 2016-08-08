@@ -1,4 +1,6 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.domain;
+
+import com.uber.challenge.flickr.photos.model.Response;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

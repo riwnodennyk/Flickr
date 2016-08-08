@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.architecture;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +16,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @NonNull
-    abstract Presenter createPresenter();
+    protected abstract Presenter createPresenter();
 
     @Override
     protected void onResume() {

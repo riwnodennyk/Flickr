@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import com.f2prateek.rx.preferences.Preference;
 import com.f2prateek.rx.preferences.RxSharedPreferences;
 import com.squareup.moshi.Moshi;
+import com.uber.challenge.flickr.domain.MyAdapterFactory;
+import com.uber.challenge.flickr.domain.FlickrApi;
 
 import java.util.Set;
 
@@ -15,10 +17,10 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
-class Injection {
+public class Injection {
 
     @NonNull
-    static FlickrApi getFlickrApi() {
+    public static FlickrApi getFlickrApi() {
 
         Moshi moshi = new Moshi.Builder()
                 .add(MyAdapterFactory.create())
@@ -34,7 +36,7 @@ class Injection {
     }
 
     @NonNull
-    static Preference<Set<String>> searchHistory(Context context) {
+    public static Preference<Set<String>> searchHistory(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         RxSharedPreferences rxPreferences = RxSharedPreferences.create(preferences);
         return rxPreferences.getStringSet("searchHistory");

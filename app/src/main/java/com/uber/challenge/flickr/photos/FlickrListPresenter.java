@@ -1,9 +1,14 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.photos;
+
+import com.uber.challenge.flickr.architecture.Presenter;
+import com.uber.challenge.flickr.photos.model.Response;
+import com.uber.challenge.flickr.photos.use_case.ListUseCase;
 
 import rx.Subscription;
 import rx.functions.Action1;
 
-import static com.uber.challenge.flickr.RxUtils.onBackground;
+import static com.uber.challenge.flickr.util.RxUtils.onBackground;
+
 
 class FlickrListPresenter extends Presenter implements FlickrListContract.ActionListener {
 
@@ -22,14 +27,14 @@ class FlickrListPresenter extends Presenter implements FlickrListContract.Action
     }
 
     @Override
-    void onShown() {
+    protected void onShown() {
         super.onShown();
         suggestionsInLoad = useCase.suggestions()
                 .subscribe(view::setSuggestions);
     }
 
     @Override
-    void onHidden() {
+    protected void onHidden() {
         if (suggestionsInLoad != null) {
             suggestionsInLoad.unsubscribe();
         }
@@ -44,7 +49,7 @@ class FlickrListPresenter extends Presenter implements FlickrListContract.Action
 
 
     @Override
-    void onDestroy() {
+    protected void onDestroy() {
         if (listInLoad != null) {
             listInLoad.unsubscribe();
         }

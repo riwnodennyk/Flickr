@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.architecture;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;

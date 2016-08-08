@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.photos;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -13,8 +13,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+import com.uber.challenge.flickr.R;
+import com.uber.challenge.flickr.architecture.BaseActivity;
+import com.uber.challenge.flickr.architecture.BindingHolder;
+import com.uber.challenge.flickr.architecture.Presenter;
 import com.uber.challenge.flickr.databinding.ActivityFlickrBinding;
 import com.uber.challenge.flickr.databinding.ImageBinding;
+import com.uber.challenge.flickr.photos.model.Photo;
+import com.uber.challenge.flickr.photos.model.Response;
+import com.uber.challenge.flickr.photos.use_case.MyListUseCase;
+import com.uber.challenge.flickr.util.Injection;
+import com.uber.challenge.flickr.util.KeyboardUtils;
+import com.uber.challenge.flickr.util.ViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +122,7 @@ public class FlickrActivity extends BaseActivity implements FlickrListContract.V
 
     @NonNull
     @Override
-    Presenter createPresenter() {
+    protected Presenter createPresenter() {
         return new FlickrListPresenter(this, new MyListUseCase(Injection.getFlickrApi(), Injection.searchHistory(this)));
     }
 

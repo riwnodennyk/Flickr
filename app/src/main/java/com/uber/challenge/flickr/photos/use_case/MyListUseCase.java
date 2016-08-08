@@ -1,17 +1,19 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.photos.use_case;
 
 import com.f2prateek.rx.preferences.Preference;
+import com.uber.challenge.flickr.domain.FlickrApi;
+import com.uber.challenge.flickr.photos.model.Response;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import rx.Observable;
 
-class MyListUseCase implements ListUseCase {
+public class MyListUseCase implements ListUseCase {
     private final FlickrApi flickrApi;
     private final Preference<Set<String>> searchHistory;
 
-    MyListUseCase(FlickrApi flickrApi, Preference<Set<String>> searchHistory) {
+    public MyListUseCase(FlickrApi flickrApi, Preference<Set<String>> searchHistory) {
         this.flickrApi = flickrApi;
         this.searchHistory = searchHistory;
     }

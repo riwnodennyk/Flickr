@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.domain;
 
 import com.ryanharter.auto.value.moshi.MoshiAdapterFactory;
 import com.squareup.moshi.JsonAdapter;

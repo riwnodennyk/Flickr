@@ -1,4 +1,6 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.photos.use_case;
+
+import com.uber.challenge.flickr.photos.model.Response;
 
 import java.util.Set;
 

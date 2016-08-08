@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.photos.model;
 
 import com.android.annotations.NonNull;
 import com.google.auto.value.AutoValue;

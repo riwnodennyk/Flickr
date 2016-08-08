@@ -1,4 +1,4 @@
-package com.uber.challenge.flickr;
+package com.uber.challenge.flickr.architecture;
 
 public interface View<ActionListener> {
 
